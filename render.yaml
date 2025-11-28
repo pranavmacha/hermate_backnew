@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: hermate-backend
+    env: python
+    region: singapore
+    plan: free
+    rootDir: herback_new
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    runtime: python3.10
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://yourdomain.com
