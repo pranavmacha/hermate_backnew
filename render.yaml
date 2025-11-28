@@ -7,8 +7,9 @@ services:
     rootDir: herback_new
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-    runtime: python3.10
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.10
       - key: GOOGLE_API_KEY
         sync: false
       - key: ALLOWED_ORIGINS
